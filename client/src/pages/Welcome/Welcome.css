@@ -1,0 +1,35 @@
+.outline {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+}
+
+.main-text {
+    position: absolute;
+    top: 50px;
+    width: 96.66666666666666%;
+    color: #FFF;
+}
+
+.btn-min-block {
+    min-width: 170px;
+    line-height: 26px;
+}
+
+.btn-clear {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.705);
+    border-color: black;
+}
+
+.btn-clear:hover {
+    color: #FFF;
+    background-color: #FF3B3F;
+    border-color: white;
+}
+
+.col-style {
+    background-image: url('../Welcome/welcomepage.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
