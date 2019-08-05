@@ -1,0 +1,54 @@
+/* #brand:focus {
+  color: #f8f9fa!important;
+}
+
+#brand:hover {
+  color: #f8f9fa!important;
+} */
+
+.lettercolor1 {
+  color: #A9A9A9;
+}
+
+.lettercolor2 {
+  color: white;
+}
+
+.headercolor {
+  background-color: #EFEFEF;
+}
+
+@media (max-width: 575.98px) {
+  #title {
+    font-size: 1.2rem;
+    margin-top: 7px;
+  }
+}
+
+.logo:hover {
+  -webkit-animation: spin 5s infinite;
+  animation: spin 5s infinite;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(-360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -ms-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  to {
+    -ms-transform: rotateY(-360deg);
+    -webkit-transform: rotateY(-360deg);
+            transform: rotateY(-360deg);
+  }
+}
+
