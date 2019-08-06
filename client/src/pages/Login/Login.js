@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import "./Login.css";
 import AuthService from '../../components/AuthService';
 
@@ -17,10 +18,10 @@ class Login extends Component {
     }
 
     componentWillMount() {
-        if (this.Auth.loggedIn())
-            this.props.history.replace('/main/home');
-    }
-    // Handles updating component state when the user types into the input field
+            if (this.Auth.loggedIn())
+                this.props.history.replace('/main/home');
+        }
+        // Handles updating component state when the user types into the input field
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -43,52 +44,64 @@ class Login extends Component {
     }
 
     render() {
-        return (
-            <div className="container">
-                <div className="container py-5">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <h2 className="text-center text-black mb-4">Welcome</h2>
-                            <div className="row">
-                                <div className="col-md-6 mx-auto">
-                                    <div className="card rounded-0">
-                                        <div className="card-header">
-                                            <h3 className="mb-0">Login</h3>
-                                        </div>
-                                        <div className="card-body">
-                                            <input className="form-control"
-                                                value={this.state.topic}
-                                                onChange={this.handleInputChange}
-                                                name="email"
-                                                placeholder="Email"
-                                            />
-                                        </div>
-                                        <div className="card-body">
-                                            <input className="form-control"
-                                                value={this.state.topic}
-                                                onChange={this.handleInputChange}
-                                                name="password"
-                                                placeholder="Password"
-                                                type="password"
-                                            />
-                                        </div>
-                                        <button className="btn btn-primary m-3"
-                                            disabled={!(this.state.email && this.state.password)}
-                                            onClick={this.login}
-                                        >
-                                            Log In
-                                        </button>
-                                        <h6 className="mx-3 mb-0">Don't have an account?</h6>
-                                        <button className="btn text-light btn-primary mx-3 mt-1 mb-3" onClick={this.goToRegisterPage.bind(this)}>
-                                            Register Here
-                                    </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div >
+        return ( <
+            div className = "container" >
+            <
+            div className = "container py-5" >
+            <
+            div className = "row" >
+            <
+            div className = "col-md-12" >
+            <
+            h2 className = "text-center text-black mb-4" > Welcome < /h2> <
+            div className = "row" >
+            <
+            div className = "col-md-6 mx-auto" >
+            <
+            div className = "card rounded-0" >
+            <
+            div className = "card-header" >
+            <
+            h3 className = "mb-0" > Login < /h3> <
+            /div> <
+            div className = "card-body" >
+            <
+            input className = "form-control"
+            value = { this.state.topic }
+            onChange = { this.handleInputChange }
+            name = "email"
+            placeholder = "Email" /
+            >
+            <
+            /div> <
+            div className = "card-body" >
+            <
+            input className = "form-control"
+            value = { this.state.topic }
+            onChange = { this.handleInputChange }
+            name = "password"
+            placeholder = "Password"
+            type = "password" /
+            >
+            <
+            /div> <
+            button className = "btn btn-primary m-3"
+            disabled = {!(this.state.email && this.state.password) }
+            onClick = { this.login } >
+            Log In <
+            /button> <
+            h6 className = "mx-3 mb-0" > Don 't have an account?</h6> <
+            button className = "btn text-light btn-primary mx-3 mt-1 mb-3"
+            onClick = { this.goToRegisterPage.bind(this) } >
+            Register Here <
+            /button> <
+            /div> <
+            /div> <
+            /div> <
+            /div> <
+            /div> <
+            /div> <
+            /div >
         );
     }
 }
