@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import withAuth from '../../components/withAuth';
 import AuthService from '../../components/AuthService';
 import API from "../../utils/API";
-import { Route, Link } from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import PostJob from './pages/PostJob/PostJob';
 import SearchJobs from './pages/SearchJobs/SearchJobs';
 import Home from './pages/Home/Home';
@@ -190,10 +190,13 @@ class Main extends Component {
   }
 
   render() {
-    console.log("TEST2")
+ 
     return (
       <div className="d-flex flex-column flex-grow-1">
-        
+        <Route exact path="/main/home" render={(props) => <Home {...props} mainState={this.state} onChange={this.handleInputChange} onClick={this.addSkill} onAddressClick={this.editAddress} onView={this.viewAddress} onDrop={this.saveImage} confirmBid={this.confirmBid.bind(this)} />} />
+        <Route exact path="/main/search-jobs" render={(props) => <SearchJobs {...props} mainState={this.state} />} />
+        <Route exact path="/main/post-job" render={(props) => <PostJob {...props} mainState={this.state} />} />
+
       </div>
     );
   }

@@ -14,9 +14,8 @@ import Footer from "./components/Footer/Footer";
 
 class App extends Component {
 
-  Err = () =>{
-    return <h4>ERROR</h4>
-  } 
+
+
   render() {
     return (
       <Router>
@@ -27,7 +26,7 @@ class App extends Component {
             <Route exact path="/" component={Welcome} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route path="*" component={this.Err} />
+           
           </div>
           <Footer />
         </div>

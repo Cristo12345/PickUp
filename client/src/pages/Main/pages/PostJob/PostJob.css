@@ -1,4 +1,4 @@
-/*.modal-open {
+.modal-open {
   padding-right: 0px!important;
   overflow-y: scroll!important;
 }
@@ -6,4 +6,4 @@
 .modal-content {
   background-color: rgba(0, 0, 255, 0)!important;
   border: none!important;
-}
+} 
