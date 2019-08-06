@@ -30,6 +30,3 @@ export default Welcome;
 
 
 
-
-// WEBPACK FOOTER //
-// ./src/components/pages/Welcome/Welcome.js
