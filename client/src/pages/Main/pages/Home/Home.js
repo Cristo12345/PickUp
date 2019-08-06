@@ -82,16 +82,16 @@ export default class Home extends React.Component {
               <div className="col-md-12 mb-5">
                 <div className="card">
                   <div className="card-header" >
-                    My Jobs
+                    My Events
                   </div>
                   <div className="card-body m-2 p-0" style={{ borderStyle: 'solid', borderWidth: '1px 1px 0px 1px', borderColor: '#dee2e6' }}>
-                    {myJobs.length > 0 ? null : <div className="text-center p-3 border-bottom">No jobs.</div>}
+                    {myJobs.length > 0 ? null : <div className="text-center p-3 border-bottom">No events.</div>}
                     <div className="container-fluid">
                       {
                         jobsArray1.length > 0 ?
                           <div className="row">
                             <div className="col py-1 d-flex align-items-center justify-content-center job-section">
-                              <h6 className="mb-0">Active Jobs</h6>
+                              <h6 className="mb-0">Active Events</h6>
                             </div>
                           </div>
                           : null
@@ -101,7 +101,7 @@ export default class Home extends React.Component {
                         jobsArray2.length > 0 ?
                           <div className="row">
                             <div className="col py-1 d-flex align-items-center justify-content-center job-section">
-                              <h6 className="mb-0">Jobs with Bids</h6>
+                              <h6 className="mb-0">Events with Bids</h6>
                             </div>
                           </div>
                           : null
@@ -111,7 +111,7 @@ export default class Home extends React.Component {
                         jobsArray3.length > 0 ?
                           <div className="row">
                             <div className="col py-1 d-flex align-items-center justify-content-center job-section">
-                              <h6 className="mb-0">Pending Jobs</h6>
+                              <h6 className="mb-0">Pending Events</h6>
                             </div>
                           </div>
                           : null
