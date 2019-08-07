@@ -1,23 +1,29 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const app = express();
-// Bodyparser middleware
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
-app.use(bodyParser.json());
-// DB Config
-const db = require("./config/keys").mongoURI;
-// Connect to MongoDB
-mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true }
-  )
-  .then(() => console.log("MongoDB successfully connected"))
-  .catch(err => console.log(err));
-const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
-app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+var express = require("express");
+
+// Sets up the Express App
+// =============================================================
+var app = express();
+var PORT = process.env.PORT || 3000;
+
+// Requiring our models for syncing
+var db = require("./models");
+
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Static directory
+app.use(express.static("public"));
+
+// Routes
+// =============================================================
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});
