@@ -1,38 +1,26 @@
-import axios from "axios";
+// requiring our models
+var db = require("../../../models");
 
-export default {
-    // Gets all Items
-    getItems: function() {
-        return axios.get("/api/Items");
-    },
-    // Gets the item with the given id
-    getItem: function(id) {
-        return axios.get("/api/Items/" + id);
-    },
-    // Deletes the item with the given id
-    deleteItem: function(id) {
-        return axios.delete("/api/Items/" + id);
-    },
-    // Saves a item to the database
-    saveItem: function(itemData) {
-        return axios.post("/api/Items", itemData);
-    },
 
-    registerUser: function (user) {
-        return axios.post("/auth/register", user);
+// create the route for getting the new user info to the database
+module.exports = function(app) {
+    app.get("/api/user", function(req, res) {
+        // find all users
+        db.User.findAll({}).then(function(dbUser) {
+            res.json(dbUser);
+        });
+    });
 
-    },
-    findUser: function (user) {
-        return axios.post("/auth/login", user);
-    },
-    //this function should use axios to call url from server to get the data from database 
-    getUserInfoFromDB: function (email) {
-        return axios.get("/api/getUserInfo/" + email)
 
-    },
- 
-    updateAddress: function (data) {
-        return axios.post("/api/updateAdress", data)
-    },
+    // POST route for saving new users
+    app.post("/api/user", function(req, res) {
+        db.User.create({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
+        }).then(function(dbUser) {
+            res.json(dbUser);
+        });
+    });
 
-}
+};

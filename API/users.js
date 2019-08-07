@@ -1,6 +1,7 @@
 // requiring our models
 var db = require("../models");
 
+
 // create the route for getting the new user info to the database
 module.exports = function(app) {
     app.get("/api/user", function(req, res) {

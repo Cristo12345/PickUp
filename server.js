@@ -13,12 +13,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
-app.use(express.static("public"));
+app.use(express.static("./client/public"));
 
 // Routes
 // =============================================================
 require("./API/users.js")(app);
-// require("./routes/html-routes.js")(app);
+
+// route for adding events
+require("./API/event.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
