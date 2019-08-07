@@ -1,8 +1,0 @@
-.pointer:hover {
-    cursor: pointer;
-  }
-  
-  .status-hover:hover {
-    background: rgb(238, 238, 238);
-    transition: all .5s;
-  }

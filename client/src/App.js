@@ -1,40 +1,61 @@
 import React, { Component } from "react";
-import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Main from "./pages/Main";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import Welcome from "./pages/Welcome";
-import Footer from "./components/Footer/Footer";
-
-
-
+import TopNav from "./components/TopNav";
+// import LoginNav from "./components/LoginNav";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
+import SavedItems from "./pages/SavedItems";
+import AddItem from "./pages/AddItem";
+import UpcomingEvents from "./pages/UpcomingEvents";
+import Welcome from "./pages/Welcome/Welcome";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 class App extends Component {
 
+    // state = {
+    //     loggedIn: false
+    // }
 
-  render() {
-    return (
-      <Router>
-        <div className="filler">
-          <div className="filler">
-            <Header />
-            <Route path="/main" component={Main} />
-            <Route exact path="/" component={Welcome} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-           
-          </div>
-          <Footer />
-        </div>
-      </Router >
-    );
-  }
+
+    render() {
+        return (
+        // placeholder ternary to check if loggedIn - if yes, directed to Saved items page as default, if no, direct to login page
+            // loggedIn will need to be defined when building authentication
+        //    loggedIn ? (
+                <div className="App">
+                    <TopNav />
+                
+                    
+                    <Router>
+                        <div>
+                            <Switch>
+                                <Route exact path="/" component={Welcome} />
+                                <Route exact path="/home" component={SavedItems} />
+                                <Route exact path="/login" component={Login} />
+                                <Route exact path="/additem" component={AddItem} />
+                                <Route exact path="/upcomingevents" component={UpcomingEvents} />
+                                <Route exact path="/register" component={Register} />
+                             \
+                                
+                            </Switch>
+                        </div>
+                    </Router>
+                </div>
+        //    ) : (
+        //        <div className="Login">
+        //             <LoginNav />
+        //             <Router>
+        //                 <div>
+        //                     <Switch>
+        //                         <Route exact path="/" component={Login} />
+        //                         <Route exact path="/signup" component={Signup} />
+        //                     </Switch>
+        //                 </div>
+        //             </Router>
+        //        </div>
+            // )
+        );
+    }
 }
+
 export default App;
-
-
-
-

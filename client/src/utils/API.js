@@ -1,6 +1,23 @@
 import axios from "axios";
 
 export default {
+    // Gets all Items
+    getItems: function() {
+        return axios.get("/api/Items");
+    },
+    // Gets the item with the given id
+    getItem: function(id) {
+        return axios.get("/api/Items/" + id);
+    },
+    // Deletes the item with the given id
+    deleteItem: function(id) {
+        return axios.delete("/api/Items/" + id);
+    },
+    // Saves a item to the database
+    saveItem: function(itemData) {
+        return axios.post("/api/Items", itemData);
+    },
+
     registerUser: function (user) {
         return axios.post("/auth/register", user);
 
@@ -13,24 +30,9 @@ export default {
         return axios.get("/api/getUserInfo/" + email)
 
     },
-    updateSkills: function (skills, id) {
-        let data = { skills: skills, id: id }
-        console.log(data)
-        return axios.post("/api/updateSkills/", data)
-    },
-
-    saveImage: function (image,email) {
-        let file={file:image, email:email}
-      console.log(file)
-        return axios.post("/api/saveimage", file)
-    },
+ 
     updateAddress: function (data) {
         return axios.post("/api/updateAdress", data)
     },
-
-    saveBid : function(user,priceNumber,status,jobId){
-        let data = { user : user , priceNumber : priceNumber ,status:status,jobId:jobId }
-        return axios.post("/api/savebid",data)
-    }
 
 }
