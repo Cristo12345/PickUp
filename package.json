@@ -22,6 +22,8 @@
   "homepage": "https://github.com/Cristo12345/PickUp#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "google-maps-react": "^2.0.2",
+    "jwt-decode": "^2.2.0",
     "mysql2": "^1.6.5",
     "sequelize": "^5.12.2"
   }
