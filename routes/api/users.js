@@ -1,24 +1,27 @@
-import axios from "axios";
+const router = require("express").Router();
+const usersController = require("../../controllers/usersController");
 
-export default {
-    getUsers: function() {
-        // Gets all users
-        return axios.get("/api/users");
-    },
-    // Gets the user with the given id 
-    getUser: function(id) {
-        return axios.get("/api/users/" + id);
-    },
-    // Deletes the user with the given id
-    deleteUser: function(id) {
-        return axios.delete("/api/users/" + id);
-    },
-    // Saves a user to the database
-    saveUser: function(userData) {
-        return axios.post("/api/users", userData)
-    }
-};
+// Matches with "/api/users"
+router.route("/")
+    .get(usersController.findAll)
+    .post(usersController.create);
 
+// Matches with "/api/users/:id"
+router
+    .route("/:id")
+    .get(usersController.findById)
+    .put(usersController.update)
+    .delete(usersController.remove);
+
+module.exports = router;
+
+
+
+
+
+
+// // requiring our models
+// var db = require("../../models");
 
 
 // // create the route for getting the new user info to the database

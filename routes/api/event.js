@@ -1,5 +1,5 @@
 // requiring our models
-var db = require("../models");
+var db = require("../../models");
 
 // create the route for getting the new event info to the database
 module.exports = function(app) {

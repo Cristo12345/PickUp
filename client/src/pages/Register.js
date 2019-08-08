@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import axios from 'axios';
-import "./Register.css";
-import API from "../../utils/API";
+// import axios from 'axios';
+// import "./Register.css";
+import API from "../utils/API";
 
 
 class Register extends Component {
@@ -28,11 +28,11 @@ class Register extends Component {
         console.log(user);
     
       
-        axios.post(`api/users`, { user })
-        .then(res => {
-          console.log(res);
-          console.log(res.data);
-        })
+        API.saveUser(user);
+        // .then(res => {
+        //   console.log(res);
+        //   console.log(res.data);
+        // })
     }
 
     register = () => {
