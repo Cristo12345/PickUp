@@ -1,4 +1,5 @@
 'use strict';
+// var Event = require("./event");
 
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
