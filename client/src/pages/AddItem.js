@@ -1,9 +1,10 @@
+import 'flatpickr/dist/themes/material_green.css'
+
 import React, { Component } from 'react';
 import { Col, Row, Container, Button, Form } from "react-bootstrap";
 import API from "../utils/API"
 import { Input, TextArea } from "../components/Form";
-
-
+import Flatpickr from 'react-flatpickr';
 
 
 class Search extends Component {
@@ -15,7 +16,7 @@ class Search extends Component {
         // quantity: "",
         location:"",
         notes: "",
-        date: "",
+        date: new Date(),
         time: "",
         query: ""
     };
@@ -26,6 +27,16 @@ class Search extends Component {
             [name]: value
         });
     };
+
+    // change handler for date selector
+    handleDateChange = (selectedDates, dateStr) => {
+        this.setState({date: dateStr})
+    }
+
+    handleTimeChange = (selectedTime, dateStr) => {
+        this.setState({time: dateStr})
+    }
+
 
     displayItem = event => {
         event.preventDefault();
@@ -45,6 +56,9 @@ class Search extends Component {
         })
             .then(res => alert("Event saved", res))
             .catch(err => console.log(err));
+        
+        //to test data type of date input
+        // console.log("Date input type: " + typeof(this.state.date));
     }
 
     render() {
@@ -54,24 +68,6 @@ class Search extends Component {
                     <Col size="md-4">
                         <h3>Add Event</h3>
                         <Form>
-                            {/* <Input
-                            value={this.state.category}
-                            onChange={this.handleInputChange}
-                            name="category"
-                            placeholder="Category (required)"
-                            /> */}
-                            {/* <Input
-                            value={this.state.name}
-                            onChange={this.handleInputChange}
-                            name="name"
-                            placeholder="Name (required)"
-                            /> */}
-                            {/* <Input
-                            value={this.state.quantity}
-                            onChange={this.handleInputChange}
-                            name="quantity"
-                            placeholder="Space (required)"
-                            /> */}
 
                             <Input
                             value={this.state.location}
@@ -79,19 +75,26 @@ class Search extends Component {
                             name="location"
                             placeholder="Location (required)"
                             />
-                        
-                            <Input
+                            
+                            <Flatpickr 
+                            options={{minDate: "today"}}
                             value={this.state.date}
-                            onChange={this.handleInputChange}
+                            onChange={this.handleDateChange}
                             name="date"
-                            placeholder="Date (required)"
                             />
-                            <Input
+
+                            <br />
+                            <br />
+
+                            {/* Time Picker */}
+                            <Flatpickr 
+                            options={{noCalendar: true, enableTime: true, dateFormat:"H:i", time_24hr: true}}
                             value={this.state.time}
-                            onChange={this.handleInputChange}
-                            name="time"
-                            placeholder="Time (required)"
+                            onChange={this.handleTimeChange}
+                            name="date"
                             />
+                            <br />
+                        
                             <TextArea 
                             value={this.state.notes}
                             onChange={this.handleInputChange}
