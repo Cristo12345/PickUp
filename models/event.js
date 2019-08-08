@@ -4,10 +4,10 @@
 module.exports = (sequelize, DataTypes) => {
     const Event = sequelize.define('Event', {
         // createdBy: DataTypes.INTEGER,
-        numberOfPeopleNeeded: DataTypes.INTEGER,
+        // maxOccupancy: DataTypes.INTEGER,
         location: DataTypes.STRING,
         notes: DataTypes.STRING,
-        date: DataTypes.DATEONLY,
+        date: DataTypes.STRING,
         time: DataTypes.STRING
     }, {});
     Event.associate = function(models) {
