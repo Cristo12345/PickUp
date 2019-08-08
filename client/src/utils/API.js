@@ -16,30 +16,24 @@ export default {
     // Saves a user to the database
     saveUser: function(userData) {
         return axios.post("/api/users", userData)
+    },
+
+
+    // Events
+    getEvents: function() {
+        // Gets all users
+        return axios.get("/api/events");
+    },
+    // Gets the user with the given id 
+    getEvent: function(id) {
+        return axios.get("/api/events/" + id);
+    },
+    // Deletes the user with the given id
+    deleteEvent: function(id) {
+        return axios.delete("/api/events/" + id);
+    },
+    // Saves a user to the database
+    saveEvent: function(eventData) {
+        return axios.post("/api/events", eventData)
     }
 };
-
-
-
-// // create the route for getting the new user info to the database
-// module.exports = function(app) {
-//     app.get("/api/user", function(req, res) {
-//         // find all users
-//         db.User.findAll({}).then(function(dbUser) {
-//             res.json(dbUser);
-//         });
-//     });
-
-
-//     // POST route for saving new users
-//     app.post("/api/user", function(req, res) {
-//         db.User.create({
-//             name: req.body.name,
-//             email: req.body.email,
-//             password: req.body.password
-//         }).then(function(dbUser) {
-//             res.json(dbUser);
-//         });
-//     });
-
-// };
