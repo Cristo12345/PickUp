@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Cristo12345/PickUp#readme",
   "dependencies": {
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "google-maps-react": "^2.0.2",
     "jwt-decode": "^2.2.0",
