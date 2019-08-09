@@ -4,12 +4,13 @@ var db = require("../models");
 
 // create the route for getting the new user info to the database
 module.exports = {
-    findAll: function(req, res) {
+    findAll: function(req, res, query) {
         db.Location
-            .find(req, query)
+            .findAll()
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+
     findById: function(req, res) {
         db.Location
             .findById(req.params.id)
