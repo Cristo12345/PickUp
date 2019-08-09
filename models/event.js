@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     const Event = sequelize.define('Event', {
         // createdBy: DataTypes.INTEGER,
         // maxOccupancy: DataTypes.INTEGER,
-        location: DataTypes.STRING,
+        // location: DataTypes.STRING,
         date: DataTypes.STRING,
         time: DataTypes.STRING,
         notes: DataTypes.STRING
@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     Event.associate = function(models) {
         // associations can be defined here
         Event.belongsTo(models.User);
+        // Event.hasOne(models.Location);
     };
     return Event;
 };
