@@ -1,36 +1,39 @@
 import axios from "axios";
 
 export default {
-    registerUser: function (user) {
-        return axios.post("/auth/register", user);
-
+    getUsers: function() {
+        // Gets all users
+        return axios.get("/api/users");
     },
-    findUser: function (user) {
-        return axios.post("/auth/login", user);
+    // Gets the user with the given id 
+    getUser: function(id) {
+        return axios.get("/api/users/" + id);
     },
-    //this function should use axios to call url from server to get the data from database 
-    getUserInfoFromDB: function (email) {
-        return axios.get("/api/getUserInfo/" + email)
-
+    // Deletes the user with the given id
+    deleteUser: function(id) {
+        return axios.delete("/api/users/" + id);
     },
-    updateSkills: function (skills, id) {
-        let data = { skills: skills, id: id }
-        console.log(data)
-        return axios.post("/api/updateSkills/", data)
-    },
-
-    saveImage: function (image,email) {
-        let file={file:image, email:email}
-      console.log(file)
-        return axios.post("/api/saveimage", file)
-    },
-    updateAddress: function (data) {
-        return axios.post("/api/updateAdress", data)
+    // Saves a user to the database
+    saveUser: function(userData) {
+        return axios.post("/api/users", userData)
     },
 
-    saveBid : function(user,priceNumber,status,jobId){
-        let data = { user : user , priceNumber : priceNumber ,status:status,jobId:jobId }
-        return axios.post("/api/savebid",data)
+
+    // Events
+    getEvents: function() {
+        // Gets all users
+        return axios.get("/api/events");
+    },
+    // Gets the user with the given id 
+    getEvent: function(id) {
+        return axios.get("/api/events/" + id);
+    },
+    // Deletes the user with the given id
+    deleteEvent: function(id) {
+        return axios.delete("/api/events/" + id);
+    },
+    // Saves a user to the database
+    saveEvent: function(eventData) {
+        return axios.post("/api/events", eventData)
     }
-
-}
+};
