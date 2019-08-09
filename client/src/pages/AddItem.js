@@ -9,7 +9,7 @@ import Flatpickr from 'react-flatpickr';
 
 class Search extends Component {
     state = {
-        items: [],
+        // items: [],
         // id: "",
         // category: "",
         // name: "",
