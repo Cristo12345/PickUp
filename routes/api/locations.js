@@ -1,14 +1,14 @@
 const router = require("express").Router();
-const locationsController = require("../../controllers/locationController");
+const locationsController = require("../../controllers/locationsController");
 
-// Matches with "/api/users"
+// Matches with "/api/locations"
 router.route("/")
     .get(locationsController.findAll)
 
-// Matches with "/api/users/:id"
+// Matches with "/api/locations/:id"
 router
     .route("/:id")
-    .get(usersController.findById)
-    .delete(usersController.remove);
+    .get(locationsController.findById)
+    .delete(locationsController.remove);
 
 module.exports = router;
