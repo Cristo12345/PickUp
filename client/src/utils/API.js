@@ -21,19 +21,33 @@ export default {
 
     // Events
     getEvents: function() {
-        // Gets all users
+        // Gets all events
         return axios.get("/api/events");
     },
-    // Gets the user with the given id 
+    // Gets the event with the given id 
     getEvent: function(id) {
         return axios.get("/api/events/" + id);
     },
-    // Deletes the user with the given id
+    // Deletes the event with the given id
     deleteEvent: function(id) {
         return axios.delete("/api/events/" + id);
     },
-    // Saves a user to the database
+    // Saves an event to the database
     saveEvent: function(eventData) {
         return axios.post("/api/events", eventData)
+    },
+
+    // Locattions
+    getLocations: function() {
+        // Gets all locations
+        return axios.get("/api/locations");
+    },
+    // Gets the location with the given id 
+    getLocation: function(id) {
+        return axios.get("/api/locations/" + id);
+    },
+    // Deletes the location with the given id
+    deleteLocation: function(id) {
+        return axios.delete("/api/locations/" + id);
     }
 };

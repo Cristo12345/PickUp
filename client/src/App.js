@@ -19,58 +19,40 @@ class App extends Component {
 
     render() {
         return (
-            // placeholder ternary to check if loggedIn - if yes, directed to Saved items page as default, if no, direct to login page
+        // placeholder ternary to check if loggedIn - if yes, directed to Saved items page as default, if no, direct to login page
             // loggedIn will need to be defined when building authentication
-            //    loggedIn ? (
-            <
-            div className = "App" >
-            <
-            TopNav / >
-
-
-            <
-            Router >
-            <
-            div >
-            <
-            Switch >
-            <
-            Route exact path = "/"
-            component = { Welcome }
-            /> <
-            Route exact path = "/home"
-            component = { SavedItems }
-            /> <
-            Route exact path = "/login"
-            component = { Login }
-            /> <
-            Route exact path = "/additem"
-            component = { AddItem }
-            /> <
-            Route exact path = "/upcomingevents"
-            component = { UpcomingEvents }
-            /> <
-            Route exact path = "/register"
-            component = { Register }
-            />\
-
-            <
-            /Switch> <
-            /div> <
-            /Router> <
-            /div>
-            //    ) : (
-            //        <div className="Login">
-            //             <LoginNav />
-            //             <Router>
-            //                 <div>
-            //                     <Switch>
-            //                         <Route exact path="/" component={Login} />
-            //                         <Route exact path="/signup" component={Signup} />
-            //                     </Switch>
-            //                 </div>
-            //             </Router>
-            //        </div>
+        //    loggedIn ? (
+                <div className="App">
+                    <TopNav />
+                
+                    
+                    <Router>
+                        <div>
+                            <Switch>
+                                <Route exact path="/" component={Welcome} />
+                                <Route exact path="/home" component={SavedItems} />
+                                <Route exact path="/login" component={Login} />
+                                <Route exact path="/additem" component={AddItem} />
+                                <Route exact path="/upcomingevents" component={UpcomingEvents} />
+                                <Route exact path="/register" component={Register} />
+                             \
+                                
+                            </Switch>
+                        </div>
+                    </Router>
+                </div>
+        //    ) : (
+        //        <div className="Login">
+        //             <LoginNav />
+        //             <Router>
+        //                 <div>
+        //                     <Switch>
+        //                         <Route exact path="/" component={Login} />
+        //                         <Route exact path="/signup" component={Signup} />
+        //                     </Switch>
+        //                 </div>
+        //             </Router>
+        //        </div>
             // )
         );
     }

@@ -25,6 +25,7 @@
     "express": "^4.17.1",
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
+    "react-flatpickr": "^3.9.0",
     "sequelize": "^5.12.2"
   }
 }
