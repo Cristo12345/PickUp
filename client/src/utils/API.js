@@ -1,38 +1,39 @@
 import axios from "axios";
 
 export default {
-    // Gets all Items
-    getItems: function() {
-        return axios.get("/api/Items");
+    getUsers: function() {
+        // Gets all users
+        return axios.get("/api/users");
     },
-    // Gets the item with the given id
-    getItem: function(id) {
-        return axios.get("/api/Items/" + id);
+    // Gets the user with the given id 
+    getUser: function(id) {
+        return axios.get("/api/users/" + id);
     },
-    // Deletes the item with the given id
-    deleteItem: function(id) {
-        return axios.delete("/api/Items/" + id);
+    // Deletes the user with the given id
+    deleteUser: function(id) {
+        return axios.delete("/api/users/" + id);
     },
-    // Saves a item to the database
-    saveItem: function(itemData) {
-        return axios.post("/api/Items", itemData);
-    },
-
-    registerUser: function (user) {
-        return axios.post("/auth/register", user);
-
-    },
-    findUser: function (user) {
-        return axios.post("/auth/login", user);
-    },
-    //this function should use axios to call url from server to get the data from database 
-    getUserInfoFromDB: function (email) {
-        return axios.get("/api/getUserInfo/" + email)
-
-    },
- 
-    updateAddress: function (data) {
-        return axios.post("/api/updateAdress", data)
+    // Saves a user to the database
+    saveUser: function(userData) {
+        return axios.post("/api/users", userData)
     },
 
-}
+
+    // Events
+    getEvents: function() {
+        // Gets all users
+        return axios.get("/api/events");
+    },
+    // Gets the user with the given id 
+    getEvent: function(id) {
+        return axios.get("/api/events/" + id);
+    },
+    // Deletes the user with the given id
+    deleteEvent: function(id) {
+        return axios.delete("/api/events/" + id);
+    },
+    // Saves a user to the database
+    saveEvent: function(eventData) {
+        return axios.post("/api/events", eventData)
+    }
+};
