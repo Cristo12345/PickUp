@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
     Event.associate = function(models) {
         // associations can be defined here
         Event.belongsTo(models.User);
-        // Event.hasOne(models.Location);
     };
     return Event;
 };
