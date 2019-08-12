@@ -3,7 +3,7 @@ import 'flatpickr/dist/themes/material_green.css';
 import React, { Component } from 'react';
 import { Col, Row, Container, Button, Form, } from "react-bootstrap";
 import API from "../utils/API"
-import { Input, TextArea } from "../components/Form";
+import {TextArea } from "../components/Form";
 import Flatpickr from 'react-flatpickr';
 import Select from "react-select";
 import 'bootstrap/dist/css/bootstrap.min.css';
