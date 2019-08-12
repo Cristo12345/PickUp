@@ -5,17 +5,17 @@ import Nav from "react-bootstrap/Nav";
 const TopNav = () => {
     return (
         <Navbar bg="light" variant="light">
-            <Navbar.Brand href="/home">
+            <Navbar.Brand href="/profile">
                 
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
 
             <Navbar.Collapse className="justify-content-end">
                 <Nav className="align-right">
-                    <Nav.Link href="/home" className="text-center">
+                    <Nav.Link href="/profile" className="text-center">
                         
                         <br />
-                        Home
+                        Profile
                     </Nav.Link>
                     <Nav.Link href="/additem" className="text-center">
                         

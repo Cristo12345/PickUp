@@ -3,11 +3,12 @@ import TopNav from "./components/TopNav";
 // import LoginNav from "./components/LoginNav";
 import Login from "./components/Login/Login";
 import Register from "./pages/Register";
-import SavedItems from "./pages/SavedItems";
+// import SavedItems from "./pages/SavedItems";
 import AddItem from "./pages/AddItem";
 import UpcomingEvents from "./pages/UpcomingEvents";
 import Welcome from "./pages/Welcome/Welcome";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import UserProfile from "./pages/UserProfile";
 
 
 class App extends Component {
@@ -30,7 +31,7 @@ class App extends Component {
                         <div>
                             <Switch>
                                 <Route exact path="/" component={Welcome} />
-                                <Route exact path="/home" component={SavedItems} />
+                                <Route exact path="/profile" component={UserProfile} />
                                 <Route exact path="/login" component={Login} />
                                 <Route exact path="/additem" component={AddItem} />
                                 <Route exact path="/upcomingevents" component={UpcomingEvents} />
