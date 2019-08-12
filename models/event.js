@@ -28,6 +28,8 @@ module.exports = (sequelize, DataTypes) => {
             as: 'createdBy',
             foreignKey: 'userID'
         });
+
+        Event.hasOne(models.Location);
     };
     return Event;
 };

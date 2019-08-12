@@ -64,14 +64,15 @@ class Search extends Component {
         // console.log("Category " + this.state.category + "Name " + this.state.name + "quant " + this.state.quantity + "notes " + this.state.notes + "date " + this.state.date + " location " + this.state.location);
         console.log("form submitted");
         API.saveEvent({
-            locationId: this.state.location,
+            locationId: this.state.location.key,
             date: this.state.date,
             time: this.state.time,
             notes: this.state.notes,
         })
             .then(res => alert("Event saved", res))
             .catch(err => console.log(err));
-
+        console.log(this.state);
+        console.log(this.state.location.key);
         //to test data type of date input
         // console.log("Date input type: " + typeof(this.state.date));
     }

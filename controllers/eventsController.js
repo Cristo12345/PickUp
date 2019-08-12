@@ -18,7 +18,9 @@ module.exports = {
     },
     create: function(req, res) {
         db.Event
-            .create(req.body)
+            .create(req.body, {
+                include: [db.Location]
+            })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
