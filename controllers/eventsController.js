@@ -17,12 +17,16 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     create: function(req, res) {
+
         db.Event
-            .create(req.body, {
-                include: [db.Location]
+            .create(req.body, [{include: db.Location}])
+            .then(event => {
+                console.log(event);
+                res.json(event);
+                
             })
-            .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+            
     },
     update: function(req, res) {
         db.Event

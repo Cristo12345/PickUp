@@ -61,13 +61,13 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        // console.log("Category " + this.state.category + "Name " + this.state.name + "quant " + this.state.quantity + "notes " + this.state.notes + "date " + this.state.date + " location " + this.state.location);
+
         console.log("form submitted");
         API.saveEvent({
-            locationId: this.state.location.key,
+            LocationId: this.state.location.key,
             date: this.state.date,
             time: this.state.time,
-            notes: this.state.notes,
+            notes: this.state.notes
         })
             .then(res => alert("Event saved", res))
             .catch(err => console.log(err));
@@ -85,15 +85,7 @@ class Search extends Component {
                         <h3>Add Event</h3>
                         <Form>
 
-                            {/* <Input
-                            value={this.state.location}
-                            onChange={this.handleInputChange}
-                            name="location"
-                            placeholder="Location (required)"
-                            /> */}
-
                             <Select
-                                // multi
                             options={this.state.locationChoices}
                             isSearchable placeholder="Select location"
                             onChange={(values) => this.handleLocationChange(values)}

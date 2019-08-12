@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'userID'
         });
 
-        Event.hasOne(models.Location);
+        // Event.hasOne(models.Location);
     };
     return Event;
 };
