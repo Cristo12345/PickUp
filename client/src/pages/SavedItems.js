@@ -6,8 +6,8 @@ import Item from '../components/Item';
 class SavedItems extends Component {
     state = {
         items: [],
-        restock: [],
-        overdue: []
+        // restock: [],
+        // overdue: []
     };
 
     componentDidMount() {

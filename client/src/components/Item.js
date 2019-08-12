@@ -15,7 +15,7 @@ const Item = props => {
                 <Card.Title>{props.name}</Card.Title>
                 <hr />
                 {/* <Card.Text>Category: {props.category}</Card.Text> */}
-                <Card.Text>Space : {props.quantity}</Card.Text>
+                <Card.Text>Location: {props.location}</Card.Text>
                 <Card.Text>Date: {props.date}</Card.Text>
                 <Card.Text>Time: {props.time}</Card.Text>
                 <Card.Text>Notes: {props.notes}</Card.Text>

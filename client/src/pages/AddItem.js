@@ -1,25 +1,36 @@
-import 'flatpickr/dist/themes/material_green.css'
+import 'flatpickr/dist/themes/material_green.css';
 
 import React, { Component } from 'react';
-import { Col, Row, Container, Button, Form } from "react-bootstrap";
+import { Col, Row, Container, Button, Form, } from "react-bootstrap";
 import API from "../utils/API"
 import { Input, TextArea } from "../components/Form";
 import Flatpickr from 'react-flatpickr';
+import Select from "react-select";
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import { INTEGER } from 'sequelize/types';
 
 
 class Search extends Component {
     state = {
-        items: [],
-        // id: "",
-        // category: "",
-        // name: "",
-        // quantity: "",
-        location:"",
+        locationChoices: [{label:"Flemming Park Field #1", key: 1}, {label: "Andrus Park", key: 2}, {label: "Lennon Park", key: 3}],
+
+
+        location: "",
         notes: "",
         date: new Date(),
         time: "",
         query: ""
     };
+
+
+    // componentDidMount() {
+    //     API.getLocations().then(response => response.json);
+    //     // fetch(API.getLocations()).
+    //     // then(response => response.json()).
+    //     // then(data => this.setState({locationChoices: data.name}));
+    // }
+
+
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -30,33 +41,37 @@ class Search extends Component {
 
     // change handler for date selector
     handleDateChange = (selectedDates, dateStr) => {
-        this.setState({date: dateStr})
+        this.setState({ date: dateStr })
     }
 
     handleTimeChange = (selectedTime, dateStr) => {
-        this.setState({time: dateStr})
+        this.setState({ time: dateStr })
+    }
+
+    handleLocationChange = (selectedLocation) => {
+        this.setState({location: selectedLocation});
     }
 
 
     displayItem = event => {
         event.preventDefault();
     };
-    
-    
+
+
 
     handleFormSubmit = event => {
         event.preventDefault();
         // console.log("Category " + this.state.category + "Name " + this.state.name + "quant " + this.state.quantity + "notes " + this.state.notes + "date " + this.state.date + " location " + this.state.location);
         console.log("form submitted");
         API.saveEvent({
-            location: this.state.location,
+            locationId: this.state.location,
             date: this.state.date,
             time: this.state.time,
             notes: this.state.notes,
         })
             .then(res => alert("Event saved", res))
             .catch(err => console.log(err));
-        
+
         //to test data type of date input
         // console.log("Date input type: " + typeof(this.state.date));
     }
@@ -69,38 +84,48 @@ class Search extends Component {
                         <h3>Add Event</h3>
                         <Form>
 
-                            <Input
+                            {/* <Input
                             value={this.state.location}
                             onChange={this.handleInputChange}
                             name="location"
                             placeholder="Location (required)"
+                            /> */}
+
+                            <Select
+                                // multi
+                            options={this.state.locationChoices}
+                            isSearchable placeholder="Select location"
+                            onChange={(values) => this.handleLocationChange(values)}
                             />
-                            
-                            <Flatpickr 
-                            options={{minDate: "today"}}
-                            value={this.state.date}
-                            onChange={this.handleDateChange}
-                            name="date"
+
+                            <br />
+
+                            <Flatpickr
+                                options={{ minDate: "today" }}
+                                value={this.state.date}
+                                onChange={this.handleDateChange}
+                                name="date"
                             />
 
                             <br />
                             <br />
 
                             {/* Time Picker */}
-                            <Flatpickr 
-                            options={{noCalendar: true, enableTime: true, dateFormat:"H:i", time_24hr: true}}
-                            value={this.state.time}
-                            onChange={this.handleTimeChange}
-                            name="date"
+                            <Flatpickr
+                                options={{ noCalendar: true, enableTime: true, dateFormat: "H:i", time_24hr: true }}
+                                value={this.state.time}
+                                onChange={this.handleTimeChange}
+                                name="date"
                             />
                             <br />
-                        
-                            <TextArea 
-                            value={this.state.notes}
-                            onChange={this.handleInputChange}
-                            name="notes" 
-                            placeholder="Notes (Optional)" 
-                            rows="3"
+                            <br />
+
+                            <TextArea
+                                value={this.state.notes}
+                                onChange={this.handleInputChange}
+                                name="notes"
+                                placeholder="Notes (Optional)"
+                                rows="3"
                             />
                             <br />
                             <Button
