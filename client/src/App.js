@@ -8,7 +8,8 @@ import AddItem from "./pages/AddItem";
 import UpcomingEvents from "./pages/UpcomingEvents";
 import Welcome from "./pages/Welcome/Welcome";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import UserProfile from "./pages/UserProfile";
+import ProfilePage from "./pages/ProfilePage";
+
 
 
 class App extends Component {
@@ -31,12 +32,11 @@ class App extends Component {
                         <div>
                             <Switch>
                                 <Route exact path="/" component={Welcome} />
-                                <Route exact path="/profile" component={UserProfile} />
+                                <Route exact path="/profile" component={ProfilePage} />
                                 <Route exact path="/login" component={Login} />
                                 <Route exact path="/additem" component={AddItem} />
                                 <Route exact path="/upcomingevents" component={UpcomingEvents} />
                                 <Route exact path="/register" component={Register} />
-                             \
                                 
                             </Switch>
                         </div>
