@@ -6,13 +6,30 @@ module.exports = (sequelize, DataTypes) => {
         // createdBy: DataTypes.INTEGER,
         // maxOccupancy: DataTypes.INTEGER,
         // location: DataTypes.STRING,
-        date: DataTypes.STRING,
-        time: DataTypes.STRING,
+        eventID: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        date: {
+            type:DataTypes.DATEONLY,
+            allowNull: false
+        },
+        time: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         notes: DataTypes.STRING
     }, {});
+
     Event.associate = function(models) {
         // associations can be defined here
-        Event.belongsTo(models.User);
+        Event.belongsTo(models.User, {
+            as: 'createdBy',
+            foreignKey: 'userID'
+        });
+
+        // Event.hasOne(models.Location);
     };
     return Event;
 };
