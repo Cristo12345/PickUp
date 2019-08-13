@@ -49,5 +49,18 @@ export default {
     // Deletes the location with the given id
     deleteLocation: function(id) {
         return axios.delete("/api/locations/" + id);
-    }
+    },
+
+    // RSVPs
+    // updateRSVPs: function() {
+    //     console.log("TESTING ROUTE UPDATE RSVP")
+    //         // Gets all rsvps
+    //     return axios.put("/api/rsvps");
+    // },
+    // // Gets the rsvp with the given id 
+    // getRSVPs: function(event_id) {
+    //     console.log("GET RSVP")
+    //     console.log(event_id)
+    //     return axios.get("/api/rsvps/" + event_id);
+    // }
 };

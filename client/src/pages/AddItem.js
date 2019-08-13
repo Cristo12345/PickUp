@@ -67,7 +67,8 @@ class Search extends Component {
             LocationId: this.state.location.key,
             date: this.state.date,
             time: this.state.time,
-            notes: this.state.notes
+            notes: this.state.notes,
+            // attendees: [],
         })
             .then(res => alert("Event saved", res))
             .catch(err => console.log(err));

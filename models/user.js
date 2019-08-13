@@ -26,8 +26,13 @@ module.exports = (sequelize, DataTypes) => {
         // associations can be defined here
         User.hasMany(models.Event, {
             as: 'eventsCreated',
-            foreignKey: 'userID'    
+            foreignKey: 'userID'
         })
+
+        // User.hasMany(models.Event, {
+        //     as: 'attendingEvents',
+        //     foreignKey: 'myEventsID'
+        // });
     };
     return User;
 };

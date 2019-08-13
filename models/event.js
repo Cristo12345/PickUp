@@ -12,14 +12,15 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         date: {
-            type:DataTypes.DATEONLY,
+            type: DataTypes.DATEONLY,
             allowNull: false
         },
         time: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        notes: DataTypes.STRING
+        notes: DataTypes.STRING,
+        attendees: DataTypes.TEXT
     }, {});
 
     Event.associate = function(models) {
@@ -29,7 +30,15 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'userID'
         });
 
+        // Event.hasMany(models.User, {
+        //     as: 'attendee',
+        //     foreignKey: 'userID'
+        // });
+
+
         // Event.hasOne(models.Location);
     };
+
+
     return Event;
 };
