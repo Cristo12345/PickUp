@@ -139,69 +139,6 @@ class Register extends Component {
             //     </div>
 
 
-
-
-
-
-
-                /* <div className="row">
-                    <div className="col-12 col-lg-6 mt-3">
-                        <div className="card">
-                            <div className="card-header text-center" >
-                                Register
-                            </div>
-                            <div className="card-body">
-                                <div className="form-group">
-                                    <input className="form-control"
-                                        value={this.state.topic}
-                                        onChange={this.handleInputChange}
-                                        name="email"
-                                        placeholder="Email"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <input className="form-control"
-                                        value={this.state.topic}
-                                        onChange={this.handleInputChange}
-                                        name="name"
-                                        placeholder="Name"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <input className="form-control"
-                                        value={this.state.topic}
-                                        onChange={this.handleInputChange}
-                                        name="password"
-                                        placeholder="Password"
-                                    />
-                                </div>
-                                <button className="btn btn-primary" disabled={!(this.state.email && this.state.name && this.state.password)} onClick={this.register}>
-                                    Register
-                            </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-12 col-lg-6 mt-3">
-                        <div className="card h-100">
-                            <div className="card-header text-center" >
-                                Login
-                            </div>
-                            <div className="card-body d-flex flex-column justify-content-between">
-                                <div>Login here.</div>
-                                <div>
-                                    <button className="btn text-light btn-primary" onClick={this.goToLoginPage.bind(this)}>
-                                        Login
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> */
-//             // </div>
-//         );
-//     }
-// }
-
 export default Register;
 
 
