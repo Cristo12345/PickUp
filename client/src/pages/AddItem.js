@@ -9,7 +9,8 @@ import Select from "react-select";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 // import { INTEGER } from 'sequelize/types';
-import PersonList from '../components/ForecastWeather';
+import ForecastWeather from '../components/ForecastWeather';
+ 
 
 class Search extends Component {
     state = { 
@@ -84,7 +85,8 @@ forecastWeather: "",
 
         axios.get('http://api.apixu.com/v1/forecast.json?key=2b36b0a0913a46ad863161615191208&q=New+York')
        .then(response => {
-          const locationChoices = response.data ;
+          const locationChoices = response.data;
+          console.log(response.data);
           this.setState({locationChoices});
         })
        .catch(error => {
@@ -186,7 +188,7 @@ forecastWeather: "",
                         <Jumbotron>
                         
                         <Row><Col>Weather:</Col></Row>
-                        <Row><Col className="temp"><PersonList/></Col></Row>
+                        <Row><Col className="temp"><ForecastWeather/></Col></Row>
                         We hope you enjoy your event !
                         </Jumbotron>
 
