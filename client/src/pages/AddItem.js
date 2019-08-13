@@ -1,21 +1,21 @@
 import 'flatpickr/dist/themes/material_green.css';
 
 import React, { Component } from 'react';
-import { Col, Row, Container, Button, Form, } from "react-bootstrap";
+import { Col, Row, Container, Button, Form, Jumbotron } from "react-bootstrap";
 import API from "../utils/API"
 import {TextArea } from "../components/Form";
 import Flatpickr from 'react-flatpickr';
 import Select from "react-select";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import axios from 'axios';
 // import { INTEGER } from 'sequelize/types';
-
+import PersonList from '../components/ForecastWeather';
 
 class Search extends Component {
-    state = {
+    state = { 
         locationChoices: [{label:"Flemming Park Field #1", key: 1}, {label: "Andrus Park", key: 2}, {label: "Lennon Park", key: 3}],
 
-
+forecastWeather: "",
         location: "",
         notes: "",
         date: new Date(),
@@ -23,7 +23,7 @@ class Search extends Component {
         query: ""
     };
 
-
+ 
     
     // componentDidMount() {
     //     API.getLocations().then(response => response.json);
@@ -80,6 +80,22 @@ class Search extends Component {
         //to test data type of date input
         // console.log("Date input type: " + typeof(this.state.date));
     }
+    componentDidMount() {
+
+        axios.get('http://api.apixu.com/v1/forecast.json?key=2b36b0a0913a46ad863161615191208&q=New+York')
+       .then(response => {
+          const locationChoices = response.data ;
+          this.setState({locationChoices});
+        })
+       .catch(error => {
+         console.log(error);
+       })
+       .finally(thing => {
+           console.log('this.state--------', this.state)
+       })
+      }
+
+      
 
     render() {
         return (
@@ -137,6 +153,7 @@ class Search extends Component {
                         </Form>
                     </Col>
                 </Row>
+               
                 {/* <Row className="mt-3">
                     <Col size="md-12">
                         {this.state.items.length ? (
@@ -158,7 +175,22 @@ class Search extends Component {
                                 <h5>No Items to Display</h5>
                             )}
                     </Col>
-                </Row> */}
+                        </Row> */}
+                <Row>
+                    {/* {* <Row className="mt-3">
+                    <Col size="md-12">
+                    {this.state.forecastWeather(item => ( */}
+
+                </Row>
+                <Row>
+                        <Jumbotron>
+                        
+                        <Row><Col>Weather:</Col></Row>
+                        <Row><Col className="temp"><PersonList/></Col></Row>
+                        We hope you enjoy your event !
+                        </Jumbotron>
+
+                </Row>
             </Container>
         );
     }
