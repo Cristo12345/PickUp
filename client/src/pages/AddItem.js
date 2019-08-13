@@ -3,7 +3,7 @@ import 'flatpickr/dist/themes/material_green.css';
 import React, { Component } from 'react';
 import { Col, Row, Container, Button, Form, } from "react-bootstrap";
 import API from "../utils/API"
-import { Input, TextArea } from "../components/Form";
+import {TextArea } from "../components/Form";
 import Flatpickr from 'react-flatpickr';
 import Select from "react-select";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -61,17 +61,18 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        // console.log("Category " + this.state.category + "Name " + this.state.name + "quant " + this.state.quantity + "notes " + this.state.notes + "date " + this.state.date + " location " + this.state.location);
+
         console.log("form submitted");
         API.saveEvent({
-            locationId: this.state.location,
+            LocationId: this.state.location.key,
             date: this.state.date,
             time: this.state.time,
-            notes: this.state.notes,
+            notes: this.state.notes
         })
             .then(res => alert("Event saved", res))
             .catch(err => console.log(err));
-
+        console.log(this.state);
+        console.log(this.state.location.key);
         //to test data type of date input
         // console.log("Date input type: " + typeof(this.state.date));
     }
@@ -84,15 +85,7 @@ class Search extends Component {
                         <h3>Add Event</h3>
                         <Form>
 
-                            {/* <Input
-                            value={this.state.location}
-                            onChange={this.handleInputChange}
-                            name="location"
-                            placeholder="Location (required)"
-                            /> */}
-
                             <Select
-                                // multi
                             options={this.state.locationChoices}
                             isSearchable placeholder="Select location"
                             onChange={(values) => this.handleLocationChange(values)}
