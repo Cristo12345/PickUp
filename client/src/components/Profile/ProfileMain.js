@@ -8,15 +8,15 @@ import './ProfileMain.css';
 const Profile = (props) => {
   return (
     <div>
-      <div>
+
       <h3>My Alerts</h3>
       <h6>Andrus Park : 18:00 - 22:00 : Wednesday</h6>
-      <h6>Lennon Park : : </h6>
-    </div>
+      <h6>Lennon Park : 0:00 - 23:55 : Saturday </h6>
+      <h6>Lennon Park : 0:00 - 23:55 : Sunday </h6>
+ 
 
-    <div>
       <AddAlertForm />
-    </div>
+
     </div>
   )
 };

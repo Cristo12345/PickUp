@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import Profile from "../components/Profile/ProfileMain.js";
 import ProfileInfo from "../components/Profile/ProfileInfo";
+import ProfileMain from "../components/Profile/ProfileMain";
 
 
 class ProfilePage extends React.Component {
@@ -11,7 +12,8 @@ class ProfilePage extends React.Component {
                 name = 'Chris'
                 emailAddress = 'hello@gmail.com'
             />
-            <Profile />
+            <br/>
+            <ProfileMain />
             </div>
         );
     }
