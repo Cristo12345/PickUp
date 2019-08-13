@@ -13,4 +13,9 @@ router
     .put(eventsController.update)
     .delete(eventsController.remove);
 
+// "/:id/addPlayer"
+//"/:id/RSVP/"
+router.route("/:id/rsvp")
+    .get(eventsController.findAll)
+
 module.exports = router;

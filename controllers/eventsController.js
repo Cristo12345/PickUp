@@ -4,9 +4,9 @@ var db = require("../models");
 
 // create the route for getting the new Event info to the database
 module.exports = {
-    findAll: function(req, res) {
+    findAll: function(req, res, query) {
         db.Event
-            .find(req, query)
+            .findAll()
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -19,14 +19,14 @@ module.exports = {
     create: function(req, res) {
 
         db.Event
-            .create(req.body, [{include: db.Location}])
+            .create(req.body, [{ include: db.Location }])
             .then(event => {
                 console.log(event);
                 res.json(event);
-                
+
             })
             .catch(err => res.status(422).json(err));
-            
+
     },
     update: function(req, res) {
         db.Event
@@ -40,5 +40,9 @@ module.exports = {
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
-    }
+    },
+    // updatersvp: function(req, res) {
+    //     db.Event
+    //         // console.log("this is working");
+    // }
 };
