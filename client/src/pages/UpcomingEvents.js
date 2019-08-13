@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import API from "../utils/API";
 import ShowEvents from '../components/ShowEvents';
+import axios from 'axios';
 
 class UpcomingEvents extends Component {
     state = {
@@ -18,6 +19,17 @@ class UpcomingEvents extends Component {
             notes: "xxxxx"
     }]
     };
+    componentDidMount() {
+ 
+        axios.get('http://api.apixu.com/v1/forecast.json?key=2b36b0a0913a46ad863161615191208&q=Paris')
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      }
+    
 
     render () {
         return (

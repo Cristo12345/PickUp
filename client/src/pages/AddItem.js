@@ -7,6 +7,7 @@ import {TextArea } from "../components/Form";
 import Flatpickr from 'react-flatpickr';
 import Select from "react-select";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 // import { INTEGER } from 'sequelize/types';
 
 
@@ -23,6 +24,7 @@ class Search extends Component {
     };
 
 
+    
     // componentDidMount() {
     //     API.getLocations().then(response => response.json);
     //     // fetch(API.getLocations()).
@@ -50,12 +52,14 @@ class Search extends Component {
 
     handleLocationChange = (selectedLocation) => {
         this.setState({location: selectedLocation});
+        
     }
 
 
     displayItem = event => {
         event.preventDefault();
     };
+
 
 
 
