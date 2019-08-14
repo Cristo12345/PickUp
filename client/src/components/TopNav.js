@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 
 const TopNav = () => {
     return (
-        <Navbar bg="light" variant="light">
+        <Navbar style={{backgroundColor:'#38761c', padding: "10", fontSize:"25px", margin: "15"}}>
             <Navbar.Brand href="/profile">
                 
             </Navbar.Brand>
@@ -12,23 +12,23 @@ const TopNav = () => {
 
             <Navbar.Collapse className="justify-content-end">
                 <Nav className="align-right">
-                    <Nav.Link href="/profile" className="text-center">
+                    <Nav.Link href="/profile" className="text-center" style={{color:'white'}}>
                         
                         <br />
                         Profile
                     </Nav.Link>
-                    <Nav.Link href="/additem" className="text-center">
+                    <Nav.Link href="/additem" className="text-center" style={{color:'white'}}>
                         
                         <br />
                         Add Event
                     </Nav.Link>
-                    <Nav.Link href="/UpcomingEvents" className="text-center">
+                    <Nav.Link href="/UpcomingEvents" className="text-center" style={{color:'white'}}>
                         
                         <br />
                         Upcoming Events
                     </Nav.Link>
                    
-                    <Nav.Link href="/" className="text-center">
+                    <Nav.Link href="/" className="text-center" style={{color:'white'}}>
                         
                         <br />
                         Logout
