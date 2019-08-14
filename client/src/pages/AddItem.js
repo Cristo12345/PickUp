@@ -1,13 +1,15 @@
 import 'flatpickr/dist/themes/material_green.css';
 
 import React, { Component } from 'react';
-import { Col, Row, Container, Button, Form, } from "react-bootstrap";
+import { Col, Row, Container, Button, Form, Jumbotron} from "react-bootstrap";
 import API from "../utils/API"
 import {TextArea } from "../components/Form";
 import Flatpickr from 'react-flatpickr';
 import Select from "react-select";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./AddItem.css";
+import axios from 'axios';
+import ForecastWeather from '../components/ForecastWeather';
 
 // import { INTEGER } from 'sequelize/types';
 
@@ -21,16 +23,26 @@ class Search extends Component {
         notes: "",
         date: new Date(),
         time: "",
-        query: ""
+        query: "",
+
+        forecastWeather: ""
     };
 
 
-    // componentDidMount() {
-    //     API.getLocations().then(response => response.json);
-    //     // fetch(API.getLocations()).
-    //     // then(response => response.json()).
-    //     // then(data => this.setState({locationChoices: data.name}));
-    // }
+    componentDidMount() {
+        axios.get('http://api.apixu.com/v1/forecast.json?key=2b36b0a0913a46ad863161615191208&q=New+York')
+        .then(response => {
+            const weatherInfo = response.data;
+            this.setState({forecastWeather: weatherInfo});
+            // this.setState({locationChoices});
+        })
+        .catch(error => {
+            console.log(error);
+        })
+        .finally(thing => {
+            console.log("this.state------,", this.state);
+        })
+    }
 
 
 
@@ -64,7 +76,7 @@ class Search extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
 
-        console.log("form submitted");
+        alert("form submitted");
         API.saveEvent({
             LocationId: this.state.location.key,
             date: this.state.date,
@@ -142,6 +154,16 @@ class Search extends Component {
  </div> */}
                         </Form>
                     </Col>
+                </Row>
+
+                <Row>
+                        <Jumbotron>
+                        
+                        <Row><Col>Weather:</Col></Row>
+                        <Row><Col className="temp"><ForecastWeather/></Col></Row>
+                        We hope you enjoy your event !
+                        </Jumbotron>
+​
                 </Row>
                 {/* <Row className="mt-3">
                     <Col size="md-12">
