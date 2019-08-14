@@ -7,19 +7,48 @@ import { get } from "https";
 class UpcomingEvents extends Component {
     state = {
         events: [{
-            location: "Prospect Park",
+            location: "Flemming Park Field #1",
             date: "2019-08-20",
-            time: "17.00",
+            time: "17:00",
             attendees: ["Michael S", "Jim H", "Pam B", "Dwight S", "Kevin M"],
-            notes: "xxxxx"
+            fieldType: "turf",
+            notes: "Let's have fun!"
         },
     {
-        location: "central Park",
-            date: "2019-08-19",
-            time: "12.00",
+        location: "Lennon Park",
+            date: "2019-08-25",
+            time: "12:00",
             attendees: ["Joey T", "Chandler B", "Rachel Green", "Ross Geller", "Monica Geller", "Phoebe"],
-            notes: "xxxxx"
-    }]
+            fieldType: "concrete",
+            notes: "The soccer episode"
+    },
+    {
+        location: "Andrus Park",
+            date: "2019-08-27",
+            time: "20:30",
+            attendees: ["Joey T", "Chandler B", "Rachel Green", "Ross Geller", "Monica Geller", "Phoebe"],
+            fieldType: "Grass",
+            notes: "N/A"
+    }, 
+
+    {
+        location: "Lennon Park",
+            date: "2019-09-08",
+            time: "16:30",
+            attendees: ["Joey T", "Chandler B", "Rachel Green", "Ross Geller", "Monica Geller", "Phoebe"],
+            fieldType: "Grass",
+            notes: "N/A"
+    },
+
+    {
+        location: "Lennon Park",
+            date: "2019-09-08",
+            time: "20:30",
+            attendees: ["Joey T", "Chandler B", "Rachel Green", "Ross Geller", "Monica Geller", "Phoebe"],
+            fieldType: "Grass",
+            notes: "N/A"
+    }
+    ]
     };
     componentDidMount = () =>{
       API.getEvents () 
