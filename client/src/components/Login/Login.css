@@ -1,0 +1,25 @@
+* {
+    font-family: 'Comfortaa', cursive;
+}
+​
+button {
+    color: rgb(56, 118, 28) !important;
+    /* background-color: rgba(255, 255, 255, 0.705) !important; */
+    /* border-color: rgb(56, 118, 28) !important; */
+}
+​
+.btn-primary:hover {
+    /* background-color: rgb(56, 118, 28) !important; */
+    border-color: rgb(56, 118, 28) !important;
+}
+​
+.btn.btn-primary {
+    background-color: rgb(56, 118, 28) !important;
+    /* border-color: rgb(56, 118, 28) !important; */
+}
+​
+h3,
+h2,
+h6 {
+    color: rgb(56, 118, 28);
+}
