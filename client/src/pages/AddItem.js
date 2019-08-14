@@ -7,6 +7,8 @@ import {TextArea } from "../components/Form";
 import Flatpickr from 'react-flatpickr';
 import Select from "react-select";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./AddItem.css";
+
 // import { INTEGER } from 'sequelize/types';
 
 
@@ -131,6 +133,13 @@ class Search extends Component {
                             >
                                 Save
                             </Button>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            {/* <div className="container">
+   <img className="img" alt="PickUp" src={pickuplogo}/>
+ </div> */}
                         </Form>
                     </Col>
                 </Row>
