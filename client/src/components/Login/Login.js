@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./Login.css";
-import AuthService from '../../utils/AutService';
+// import AuthService from '../../utils/AutService';
 
 class Login extends Component {
 
     constructor() {
         super();
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.Auth = new AuthService();
+        // this.Auth = new AuthService();
     }
 
     state = {
@@ -16,10 +16,10 @@ class Login extends Component {
         password: ""
     }
 
-    componentWillMount() {
-        if (this.Auth.loggedIn())
-            this.props.history.replace('/home');
-    }
+    // componentWillMount() {
+    //     if (this.Auth.loggedIn())
+    //         this.props.history.replace('/home');
+    // }
     // Handles updating component state when the user types into the input field
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -28,18 +28,22 @@ class Login extends Component {
         });
     };
 
-    login = () => {
-        this.Auth.login(this.state.email, this.state.password)
-            .then(res => {
-                this.props.history.replace('/home');
-            })
-            .catch(err => {
-                alert(err);
-            })
-    }
+    // login = () => {
+    //     this.Auth.login(this.state.email, this.state.password)
+    //         .then(res => {
+    //             this.props.history.replace('/home');
+    //         })
+    //         .catch(err => {
+    //             alert(err);
+    //         })
+    // }
 
     goToRegisterPage() {
         window.location.href = window.location.origin + '/register'
+    }
+
+    goToProfilePage() {
+        window.location.href = window.location.origin + '/profile'
     }
 
     render() {
@@ -74,7 +78,7 @@ class Login extends Component {
                                         </div>
                                         <button className="btn btn-primary m-3"
                                             disabled={!(this.state.email && this.state.password)}
-                                            onClick={this.login}
+                                            onClick={this.goToProfilePage.bind(this)}
                                         >
                                             Log In
                                         </button>

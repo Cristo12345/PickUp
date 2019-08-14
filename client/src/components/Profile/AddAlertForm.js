@@ -12,9 +12,40 @@ class AddItemForm extends Component {
         fromTime: "",
         toTime: "",
         weekday: "",
+        location: "",
+
+        
     };
 
+    newAlert = () => {
+        return (
+            <h1>{this.state.location} : {this.state.fromTime}  -  {this.state.toTime} : {this.state.weekday}</h1>)
+    }
+
+
+    handleLocationChange = (selectedLocation) => {
+        this.setState ({location: selectedLocation});
+    }
+
+    handleFromChange = (selectedTime) => {
+        this.setState({fromTime: selectedTime});
+    }
+
+    handleToChange = (selectedTime) => {
+        this.setState({toTime: selectedTime});
+    }
+
+    handleDayChange = (selectedDay) => {
+        this.setState({weekday: selectedDay});
+    }
+
+    handleSubmit = event => {
+        event.preventDefault();
+        }
+
     render() {
+
+        const newAlert = "";
         return (
             <Container>
                 <Row>
@@ -24,14 +55,14 @@ class AddItemForm extends Component {
                                 options={this.state.locationChoices}
                                 isSearchable
                                 placeholder="Choose location"
-                                onChange={console.log("location selected")}
+                                onChange={(values) => this.handleLocationChange(values)}
                             />
                             <br />
                             From:
                              <Flatpickr
                                 options={{ noCalendar: true, enableTime: true, dateFormat: "H:i", time_24hr: true }}
                                 value={this.state.fromTime}
-                                // onChange={this.handleTimeChange}
+                                onChange={this.handleFromChange}
                                 // name="date"
                             />  
 
@@ -39,7 +70,7 @@ class AddItemForm extends Component {
                             <Flatpickr
                                 options={{ noCalendar: true, enableTime: true, dateFormat: "H:i", time_24hr: true }}
                                 value={this.state.toTime}
-                                // onChange={this.handleTimeChange}
+                                onChange={this.handleToChange}
                                 // name="date"
                             />
 
@@ -49,6 +80,7 @@ class AddItemForm extends Component {
                                 options = {[{ label: "Monday", key: 1 }, { label: "Tuesday", key: 2 }, { label: "Wednesday", key: 3 },
                                 { label: "Thursday", key: 4 }, { label: "Friday", key: 5 }, { label: "Saturday", key: 6 }, { label: "Sunday", key: 7 } ]}
                                 value={this.state.weekday}
+                                onChange={(values) => this.handleDayChange(values)}
                             />
                             <br />
                             <br />
@@ -56,6 +88,7 @@ class AddItemForm extends Component {
                             <Button 
                                 variant="danger"
                                 type="submit"
+                                onClick={this.handleSubmit}
                             >Add Alert</Button> 
                         </Form>
                     </Col>
