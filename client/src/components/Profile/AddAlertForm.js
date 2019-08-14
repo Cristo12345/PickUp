@@ -5,6 +5,7 @@ import { Container, Col, Row, Form, Button } from 'react-bootstrap';
 import Select from "react-select";
 import Flatpickr from 'react-flatpickr';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './AddAlertForm.css';
 
 class AddItemForm extends Component {
     state = {

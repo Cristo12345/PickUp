@@ -1,7 +1,7 @@
 import React from "react";
 import "./Welcome.css";
 import AOS from "aos";
-// import pickuplogo from "./pickuplogo.png";
+import pickuplogo from "./pickuplogo.png";
 // import "dist/aos.css";
 const Welcome = (props) => {
  // constructor(props){
@@ -35,7 +35,7 @@ const Welcome = (props) => {
      </div>
    </div>
    <div className="container">
-   {/* <img className="img" data-aos="fade-up" alt="PickUp" src={pickuplogo}/> */}
+   <img className="img" data-aos="fade-in" alt="PickUp" src={pickuplogo}/>
  </div>
  </section>
  );

@@ -30,6 +30,7 @@
     "react-dropdown-select": "^3.3.2",
     "react-flatpickr": "^3.9.0",
     "react-select": "^3.0.4",
+    "reactstrap": "^8.0.1",
     "sequelize": "^5.12.2"
   }
 }
