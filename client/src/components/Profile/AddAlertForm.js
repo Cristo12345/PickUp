@@ -13,7 +13,14 @@ class AddItemForm extends Component {
         toTime: "",
         weekday: "",
         location: "",
+
+        
     };
+
+    newAlert = () => {
+        return (
+            <h1>{this.state.location} : {this.state.fromTime}  -  {this.state.toTime} : {this.state.weekday}</h1>)
+    }
 
 
     handleLocationChange = (selectedLocation) => {
@@ -34,12 +41,11 @@ class AddItemForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        // this.setState({newAlert: this.state.location + " : " + this.state.fromTime + " - " + this.state.toTime + " : " + this.state.weekday});
-    }
+        }
 
     render() {
 
-        const newAlert = this.state.location + " : " + this.state.fromTime + " - " + this.state.toTime + " : " + this.state.weekday;
+        const newAlert = "";
         return (
             <Container>
                 <Row>
