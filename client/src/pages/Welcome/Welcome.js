@@ -35,7 +35,7 @@ const Welcome = (props) => {
      </div>
    </div>
    <div className="container">
-   <img className="img" data-aos="fade-in" alt="PickUp" src={pickuplogo}/>
+   <img className="logo" data-aos="fade-in" alt="PickUp" src={pickuplogo}/>
  </div>
  </section>
  );
